@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.post('/upload-products', (req, res) => {
     const XMLfile = req.files.products.data;
-	const products = libxmljs.parseXmlString(XMLfile, {noent:true,noblanks:true})
+	const products = libxmljs.parseXmlString(XMLfile, { noblanks: true })
 
 	products.root().childNodes().forEach(product => {
 		let newProduct = new db.Product()
